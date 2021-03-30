@@ -1,4 +1,4 @@
-// Copyright 2020 Your Name <your_email>
+// Copyright 2020 Slava-100 <svat.strel.2001@gmail.com>
 
 #ifndef INCLUDE_STACK_HPP_
 #define INCLUDE_STACK_HPP_
