@@ -14,7 +14,7 @@ class Stack {
 
   Stack(const Stack &) = delete;
 
-  Stack(Stack &&other) noexcept { _impl(std::move(other._impl)); }
+  Stack(Stack &&other) noexcept : _impl(std::move(other._impl)) {}
 
   Stack &operator=(const Stack &) = delete;
 
@@ -37,7 +37,9 @@ class Stack {
 
   T pop() { return _impl->pop(); }
 
-  bool empty() const { return _impl->empty(); }
+  bool empty() const {
+    return _impl->empty();
+  }
 
   std::size_t size() const { return _impl->size(); }
 
