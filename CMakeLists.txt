@@ -32,7 +32,7 @@ find_package(GTest CONFIG REQUIRED)
 add_library(${PROJECT_NAME} STATIC
   # enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
-)
+        include/StackImpl.hpp)
 
 add_executable(demo
   ${CMAKE_CURRENT_SOURCE_DIR}/demo/main.cpp
