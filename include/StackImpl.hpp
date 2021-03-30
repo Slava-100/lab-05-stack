@@ -13,8 +13,8 @@ class StackImpl {
   StackImpl(const StackImpl &) = delete;
   StackImpl(StackImpl &&) = delete;
 
-  StackImpl& operator=(const StackImpl &) = delete;
-  StackImpl& operator=(StackImpl &&) = delete;
+  StackImpl &operator=(const StackImpl &) = delete;
+  StackImpl &operator=(StackImpl &&) = delete;
 
   ~StackImpl() {
     while (_tail != nullptr) {
@@ -41,8 +41,7 @@ class StackImpl {
   }
 
   T pop() {
-    if (!_tail)
-      throw std::runtime_error("pop from empty stack");
+    if (!_tail) throw std::runtime_error("pop from empty stack");
     auto tmp = _tail;
     auto ret_value = tmp->value;
     _tail = _tail->prev;
@@ -51,20 +50,17 @@ class StackImpl {
     return ret_value;
   }
 
-  std::size_t size() const {
-    return _size;
-  }
+  std::size_t size() const { return _size; }
 
-  bool empty() const {
-    return _tail == nullptr;
-  }
+  bool empty() const { return _tail == nullptr; }
 
  private:
   struct _list_node {
     explicit _list_node(const T &val) : value(val), prev(nullptr) {}
     explicit _list_node(T &&val) : value(std::move(val)), prev(nullptr) {}
     template <typename... args_t>
-    explicit _list_node(args_t &&...args) : value(std::forward<args_t>(args)...), prev(nullptr) {}
+    explicit _list_node(args_t &&...args)
+        : value(std::forward<args_t>(args)...), prev(nullptr) {}
 
     T value;
     _list_node *prev;
